@@ -32,9 +32,6 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
-import MapScreen from './screens/MapScreen';
-import ForgetPasswordScreen from './screens/ForgetPasswordScreen';
-import ResetPasswordScreen from './screens/ResetPasswordScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -47,7 +44,7 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(true);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -76,10 +73,10 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar bg="light" variant="light" expand="lg">
             <Container>
               <Button
-                variant="dark"
+                variant="light"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars fa-2x"></i>
@@ -171,14 +168,6 @@ function App() {
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route
-                path="/forget-password"
-                element={<ForgetPasswordScreen />}
-              />
-              <Route
-                path="/reset-password/:token"
-                element={<ResetPasswordScreen />}
-              />
 
               <Route
                 path="/profile"
@@ -188,14 +177,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="/map"
-                element={
-                  <ProtectedRoute>
-                    <MapScreen />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/map" element={<ProtectedRoute></ProtectedRoute>} />
+
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
                 path="/order/:id"
@@ -264,9 +247,6 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
-          <div className="text-center">All rights reserved</div>
-        </footer>
       </div>
     </BrowserRouter>
   );

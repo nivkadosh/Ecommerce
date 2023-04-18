@@ -29,8 +29,8 @@ main {
 }
 
 .product {
-  border: 1px #404040 solid;
-  margin: 1rem;
+  border: 1px #ffffff solid;
+  margin: 1srem;
 }
 .product img {
   width: 100%;
@@ -53,8 +53,8 @@ main {
   color: #a0a0a0;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #f08000;
-  color: #f08000;
+  border-bottom: 0.2rem solid #fa8888;
+  color: #fa8888;
 }
 
 /* sidebar */
@@ -71,7 +71,7 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #0a0000;
+  background-color: #fa8888;
   transition: 0.5s;
 }
 
